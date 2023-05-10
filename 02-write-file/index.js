@@ -10,7 +10,7 @@ const output = fs.createWriteStream(file);
 stdout.write('Привет! Напиши что-нибудь.\n');
 
 stdin.on('data', chunk => {
-  if(chunk.toString() === 'exit\n') {
+  if(chunk.toString().trim() === 'exit') {
     process.exit();
   }
   output.write(chunk);
